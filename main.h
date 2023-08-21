@@ -9,7 +9,9 @@
 #include <unistd.h>
 
 /* Function prototypes*/
+int _printf_with_spec(va_list arv, char conversion_spec);
 int _putstr(char *s);
+int _printf_int(int n);
 int _printf(const char *format, ...);
 int _putchar(char c);
 
