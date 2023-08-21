@@ -1,52 +1,48 @@
 #include "main.h"
 
 /**
- * _printf - a function that print output
- * according to a format
- * @format: character string to be used
- * Return: number of characters to be printed
+ *  _printf - a function that will print
+ *  output arguments according to a format
+ *  @format: character string to be utilised
+ *  Return: Number of characters to be printed
+ *  to standard output
  */
 
 int _printf(const char *format, ...)
 {
-	int char_print = 0;
+	int w, p_cnt = 0;
 	va_list args;
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 
-	while (*format != '\0')
+	for (w = 0; format[w] != '\0'; w++)
 	{
-		if (*format == '%')
+		if (format[w] != '%')
 		{
-			format++;
-
-			switch (*format)
-			{
-				case 'c':
-					char_print += printf("%c", va_arg(args, int));
-					break;
-
-				case 's':
-					char_print += printf("%s", va_arg(args, char*));
-					break;
-
-				case '%':
-					char_print += printf("%%");
-					break;
-
-				default:
-					char_print += printf("%%%c", *format);
-					break;
-			}
+			_putchar(format[w]);
 		}
-		else
+		else if (format[w + 1] == 'c')
 		{
-			putchar(*format);
-			char_print++;
+			_putchar((char)(va_arg(args, int)));
+			w++;
 		}
-		format++;
+		else if (format[w + 1] == 's')
+		{
+			p_cnt += _putstr(va_arg(args, char *));
+			p_cnt--;
+			w++;
+		}
+		else if (format[w + 1] == '%')
+		{
+			_putchar('%');
+			w++;
+		}
+
+		p_cnt += 1;
 	}
-
 	va_end(args);
-	return (char_print);
+
+	return (p_cnt);
 }
