@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		else if (format[w + 1] == 's')
 		{
 			p_cnt += _putstr(va_arg(args, char *));
-			p_cnt++;
+			p_cnt--;
 			w++;
 		}
 		else if (format[w + 1] == '%')
