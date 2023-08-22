@@ -3,14 +3,15 @@
 /**
  * print_hex - a fuction that prints a number in
  * hexadecimal base in lowercase
- * @f: pointer to to be used
- * @l: va_list argument
- *
+ * @y: pointer to to be used
+ * @vi: va_list argument
+ * By Henry Dade, Henry Danso
  * Return: number of characters to be printed
  */
-int print_hex(va_list l, flags_t *f)
+
+int print_hex(va_list vi, flags_x *y)
 {
-	unsigned int num = va_arg(l, unsigned int);
+	unsigned int num = va_arg(vi, unsigned int);
 	char *str = convert(num, 16, 1);
 	int count = 0;
 
@@ -24,16 +25,16 @@ int print_hex(va_list l, flags_t *f)
 /**
  * print_hex_big - a function to print a number
  * in hexadecimal base in uppercase
- * @f: pointer to be used
- * @l: va_list arguments
+ * @y: pointer to be used
+ * @vi: va_list arguments
  *
  * Return: number of characters
  */
 
-int print_hex_big(va_list l, flags_t *f)
+int print_hex_big(va_list vi, flags_x *y)
 {
 	int count = 0;
-	unsigned int num = va_arg(l, unsigned int);
+	unsigned int num = va_arg(vi, unsigned int);
 	char *str = convert(num, 16, 0);
 
 	if (f->hash == 1 && str[0] != '0')
@@ -45,37 +46,37 @@ int print_hex_big(va_list l, flags_t *f)
 
 /**
  * print_binary - a function that prints number in base 2
- * @f: pointer to be used
- * @l: va_list arguments
+ * @y: pointer to be used
+ * @vi: va_list arguments
  *
  * Return: number of characters to be printed
  */
 
-int print_binary(va_list l, flags_t *f)
+int print_binary(va_list vi, flags_x *y)
 {
-	unsigned int num = va_arg(l, unsigned int);
+	unsigned int num = va_arg(vi, unsigned int);
 	char *str = convert(num, 2, 0);
 
-	(void)f;
+	(void)y;
 
 	return (_puts(str));
 }
 
 /**
  * print_octal - a function that prints a number in base 8
- * @f: pointer to be used
- * @l: va_list arguments
+ * @y: pointer to be used
+ * @vi: va_list arguments
  *
  * Return: number of characters to be printed
  */
 
-int print_octal(va_list l, flags_t *f)
+int print_octal(va_list vi, flags_x *y)
 {
-	unsigned int num = va_arg(l, unsigned int);
+	unsigned int num = va_arg(vi, unsigned int);
 	char *str = convert(num, 8, 0);
 	int count = 0;
 
-	if (f->hash == 1 && str[0] != '0')
+	if (y->hash == 1 && str[0] != '0')
 		count += _putchar('0');
 	count += _puts(str);
 

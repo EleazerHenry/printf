@@ -1,20 +1,21 @@
 #include "main.h"
 
 /**
- * print_int - prints an integer
- * @l: va_list of arguments from _printf
- * @f: pointer to the struct flags determining
- *     if a flag is passed to _printf
+ * print_int - a function that prints an integer
+ * @vi: va_list of arguments
+ * @y: pointer to be used
+ * By Henry Dade, Henry Danso
  * Return: number of characters printed
  */
-int print_int(va_list l, flags_t *f)
+
+int print_int(va_list vi, flags_x *y)
 {
-	int n = va_arg(l, int);
+	int n = va_arg(vi, int);
 	int res = count_digit(n);
 
-	if (f->space == 1 && f->plus == 0 && n >= 0)
+	if (y->space == 1 && y->plus == 0 && n >= 0)
 		res += _putchar(' ');
-	if (f->plus == 1 && n >= 0)
+	if (y->plus == 1 && n >= 0)
 		res += _putchar('+');
 	if (n <= 0)
 		res++;
@@ -23,26 +24,27 @@ int print_int(va_list l, flags_t *f)
 }
 
 /**
- * print_unsigned - prints an unsigned integer
- * @l: va_list of arguments from _printf
- * @f: pointer to the struct flags determining
- *     if a flag is passed to _printf
- * Return: number of characters printed
+ * print_unsigned - a function to print an unsigned integer
+ * @vi: va_list of arguments
+ * @y: pointer to be used
+ * Return: number of characters to be printed
  */
-int print_unsigned(va_list l, flags_t *f)
+
+int print_unsigned(va_list vi, flags_x *y)
 {
-	unsigned int u = va_arg(l, unsigned int);
+	unsigned int u = va_arg(vi, unsigned int);
 	char *str = convert(u, 10, 0);
 
-	(void)f;
+	(void)y;
 	return (_puts(str));
 }
 
 /**
- * print_number - helper function that loops through
- * an integer and prints all its digits
+ * print_number - a function to help look through
+ * the loop and integer and prints all its digits
  * @n: integer to be printed
  */
+
 void print_number(int n)
 {
 	unsigned int n1;
@@ -61,20 +63,21 @@ void print_number(int n)
 }
 
 /**
- * count_digit - returns the number of digits in an integer
- *               for _printf
- * @i: integer to evaluate
+ * count_digit - a function that returns the number
+ * of digits in an integer
+ * @y: integer to evaluate
  * Return: number of digits
  */
-int count_digit(int i)
+
+int count_digit(int y)
 {
 	unsigned int d = 0;
 	unsigned int u;
 
-	if (i < 0)
-		u = i * -1;
+	if (y < 0)
+		u = y * -1;
 	else
-		u = i;
+		u = y;
 	while (u != 0)
 	{
 		u /= 10;

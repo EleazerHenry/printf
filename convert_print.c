@@ -1,12 +1,14 @@
 #include "main.h"
 
 /**
- * convert - converts number and base into string
+ * convert - a function to converts number and base into string
  * @num: input number
  * @base: input base
  * @lowercase: flag if hexa values need to be lowercase
+ * By Henry Dade, Henry Danso
  * Return: result string
  */
+
 char *convert(unsigned long int num, int base, int lowercase)
 {
 	static char *rep;
@@ -25,4 +27,3 @@ char *convert(unsigned long int num, int base, int lowercase)
 
 	return (ptr);
 }
-

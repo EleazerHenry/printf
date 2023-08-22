@@ -1,6 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/*Functions Headers */
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
@@ -29,6 +33,8 @@ typedef struct printHandler
 	char c;
 	int (*f)(va_list ap, flags_t *f);
 } ph;
+
+/* All printf prototype functions are listed below */
 
 /* print_nums */
 int print_int(va_list l, flags_t *f);
@@ -74,4 +80,3 @@ int print_address(va_list l, flags_t *f);
 int print_percent(va_list l, flags_t *f);
 
 #endif
-

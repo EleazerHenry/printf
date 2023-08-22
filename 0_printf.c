@@ -2,20 +2,17 @@
 
 /**
  * _printf - printf function
- * @format: format string containing the characters and the specifiers
- *
- * Description: This function will call the get_print() function that will
- * determine which printing function to call depending on the conversion
- * specifiers contained into fmt.
- *
- * Return: length of the formatted output string
+ * @format: format string specifier to be used
+ * By Henry Dade and Henry Danso
+ * Return: number of characters
  */
+
 int _printf(const char *format, ...)
 {
-	int (*pfunc)(va_list, flags_t *);
+	int (*pfunx)(va_list, flags_x *);
 	const char *p;
 	va_list arguments;
-	flags_t flags = {0, 0, 0};
+	flags_x flags = {0, 0, 0};
 
 	register int count = 0;
 
@@ -36,9 +33,9 @@ int _printf(const char *format, ...)
 			}
 			while (get_flag(*p, &flags))
 				p++;
-			pfunc = get_print(*p);
-			count += (pfunc)
-				? pfunc(arguments, &flags)
+			pfunx = get_print(*p);
+			count += (pfunx)
+				? pfunx(arguments, &flags)
 				: _printf("%%%c", *p);
 		}
 		else
