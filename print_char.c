@@ -36,7 +36,7 @@ int print_char(va_list vi, flags_x *y)
 	int count;
 
 	(void)y;
-	_putchar(va_arg(l, int));
+	_putchar(va_arg(vi, int));
 	count = 1;
 
 	return (count);

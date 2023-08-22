@@ -15,7 +15,7 @@ int print_hex(va_list vi, flags_x *y)
 	char *str = convert(num, 16, 1);
 	int count = 0;
 
-	if (f->hash == 1 && str[0] != '0')
+	if (y->hash == 1 && str[0] != '0')
 		count += _puts("0x");
 	count += _puts(str);
 
@@ -37,7 +37,7 @@ int print_hex_big(va_list vi, flags_x *y)
 	unsigned int num = va_arg(vi, unsigned int);
 	char *str = convert(num, 16, 0);
 
-	if (f->hash == 1 && str[0] != '0')
+	if (y->hash == 1 && str[0] != '0')
 		count += _puts("0X");
 	count += _puts(str);
 

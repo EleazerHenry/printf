@@ -12,7 +12,7 @@
 int (*get_print(char specifier))(va_list, flags_x *)
 {
 	ph func_arr[] = {
-		{'c', print_char},
+		{'c', print_char},	
 		{'s', print_string},
 		{'i', print_int},
 		{'d', print_int},

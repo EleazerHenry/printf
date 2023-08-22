@@ -86,7 +86,7 @@ int print_rot13(va_list vi, flags_x *y)
 			for (w = 0; w <= 52; w++)
 			{
 				if (s[j] == rot13[w])
-					_putchar(ROT13[i]);
+					_putchar(ROT13[w]);
 			}
 		}
 	}
