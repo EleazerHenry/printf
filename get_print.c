@@ -22,6 +22,7 @@ int (*get_print(char specifier))(va_list, flags_t *)
 		{'o', print_octal},
 		{'R', print_rot13},
 		{'r', print_rev},
+		{'p', print_address},
 		{'S', print_address},
 		{'%', print_percent}
 	};
