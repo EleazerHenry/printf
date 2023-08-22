@@ -22,7 +22,7 @@ int (*get_print(char specifier))(va_list, flags_t *)
 		{'o', print_octal},
 		{'R', print_rot13},
 		{'r', print_rev},
-		{'S', print_address},
+		{'p', print_address},
 		{'%', print_percent}
 	};
 	int num_funcs = 14;
