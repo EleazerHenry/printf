@@ -5,13 +5,14 @@
  * the appropraite printing function
  * @specifier: character that holds the specifier
  * to be converted
- *
+ * By Henry Dade and Henry Danso
  * Return: pointer to the matching printing function
  */
-int (*get_print(char specifier))(va_list, flags_t *)
+
+int (*get_print(char specifier))(va_list, flags_x *)
 {
 	ph func_arr[] = {
-		{'c', print_char},
+		{'c', print_char},	
 		{'s', print_string},
 		{'i', print_int},
 		{'d', print_int},
@@ -23,16 +24,20 @@ int (*get_print(char specifier))(va_list, flags_t *)
 		{'R', print_rot13},
 		{'r', print_rev},
 		{'p', print_address},
+<<<<<<< HEAD
+=======
+		{'S', print_bigS},
+>>>>>>> 6e02e506d017503e18c8b960f85ab0c4a23aedae
 		{'%', print_percent}
 	};
 	int num_funcs = 14;
-	int i;
+	int w;
 
-	for (i = 0; i < num_funcs; i++)
+	for (w = 0; w < num_funcs; w++)
 	{
-		if (func_arr[i].c == specifier)
+		if (func_arr[w].c == specifier)
 		{
-			return (func_arr[i].f);
+			return (func_arr[w].y);
 		}
 	}
 

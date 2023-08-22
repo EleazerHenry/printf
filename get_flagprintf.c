@@ -3,31 +3,31 @@
 /**
  * get_flag - a function that turns on flags if
  * _printf finds a flag modifier in format string
- * @f: pointer to the struct flags to be used
+ * @y: pointer to the struct flags to be used
  * @s: character specifier to be used
- *
+ * By Henry Dade and Henry Danso
  * Return: 1 if flag works, 0 otherwise
  */
 
-int get_flag(char s, flags_t *f)
+int get_flag(char s, flags_x *y)
 {
-	int i = 0;
+	int w = 0;
 
 	switch (s)
 	{
 		case '+':
-			f->plus = 1;
-			i = 1;
+			y->plus = 1;
+			w = 1;
 			break;
 		case ' ':
-			f->space = 1;
-			i = 1;
+			y->space = 1;
+			w = 1;
 			break;
 		case '#':
-			f->hash = 1;
-			i = 1;
+			y->hash = 1;
+			w = 1;
 			break;
 	}
 
-	return (i);
+	return (w);
 }

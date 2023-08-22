@@ -3,18 +3,18 @@
 /**
  * print_string - a function that loops through a string
  * then prints every character
- * @f: pointer to be used
- * @l: va_list argument to be used
- *
+ * @y: pointer to be used
+ * @vi: va_list argument to be used
+ * By Henry Dade, Henry Danso
  * Return: number of characters to be printed
  */
 
-int print_string(va_list l, flags_t *f)
+int print_string(va_list vi, flags_x *y)
 {
-	char *s = va_arg(l, char *);
+	char *s = va_arg(vi, char *);
 	int count;
 
-	(void)f;
+	(void)y;
 
 	if (!s)
 		s = "(null)";
@@ -25,18 +25,18 @@ int print_string(va_list l, flags_t *f)
 
 /**
  * print_char - a function to print characters
- * @f: pointer to be used
- * @l: va_list argumets
+ * @y: pointer to be used
+ * @vi: va_list argumets
  *
  * Return: print number of characters
  */
 
-int print_char(va_list l, flags_t *f)
+int print_char(va_list vi, flags_x *y)
 {
 	int count;
 
-	(void)f;
-	_putchar(va_arg(l, int));
+	(void)y;
+	_putchar(va_arg(vi, int));
 	count = 1;
 
 	return (count);

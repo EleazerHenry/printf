@@ -1,6 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/*Functions Headers */
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
@@ -16,31 +20,33 @@ typedef struct flags
 	int plus;
 	int space;
 	int hash;
-} flags_t;
+} flags_x;
 
 /**
  * struct printHandler - struct to choose the right function depending
  * on the format specifier passed to _printf()
  * @c: format specifier
- * @f: pointer to the correct printing function
+ * @y: pointer to the correct printing function
  */
 typedef struct printHandler
 {
 	char c;
-	int (*f)(va_list ap, flags_t *f);
+	int (*y)(va_list ap, flags_x *y);
 } ph;
 
+/* All printf prototype functions are listed below */
+
 /* print_nums */
-int print_int(va_list l, flags_t *f);
+int print_int(va_list vi, flags_x *y);
 void print_number(int n);
-int print_unsigned(va_list l, flags_t *f);
+int print_unsigned(va_list vi, flags_x *y);
 int count_digit(int i);
 
 /* print_bases */
-int print_hex(va_list l, flags_t *f);
-int print_hex_big(va_list l, flags_t *f);
-int print_binary(va_list l, flags_t *f);
-int print_octal(va_list l, flags_t *f);
+int print_hex(va_list vi, flags_x *y);
+int print_hex_big(va_list vi, flags_x *y);
+int print_binary(va_list vi, flags_x *y);
+int print_octal(va_list vi, flags_x *y);
 
 /* converter */
 char *convert(unsigned long int num, int base, int lowercase);
@@ -49,30 +55,29 @@ char *convert(unsigned long int num, int base, int lowercase);
 int _printf(const char *format, ...);
 
 /* get_print */
-int (*get_print(char s))(va_list, flags_t *);
+int (*get_print(char s))(va_list, flags_x *);
 
 /* get_flag */
-int get_flag(char s, flags_t *f);
+int get_flag(char s, flags_x *y);
 
 /* print_alpha */
-int print_string(va_list l, flags_t *f);
-int print_char(va_list l, flags_t *f);
+int print_string(va_list vi, flags_x *y);
+int print_char(va_list vi, flags_x *y);
 
 /* write_funcs */
 int _putchar(char c);
 int _puts(char *str);
 
 /* print_custom */
-int print_rot13(va_list l, flags_t *f);
-int print_rev(va_list l, flags_t *f);
-int print_bigS(va_list l, flags_t *f);
+int print_rot13(va_list vi, flags_x *y);
+int print_rev(va_list vi, flags_x *y);
+int print_bigS(va_list vi, flags_x *y);
 
 /* print_address */
-int print_address(va_list l, flags_t *f);
+int print_address(va_list vi, flags_x *y);
 
 /* print_percent */
-int print_percent(va_list l, flags_t *f);
+int print_percent(va_list vi, flags_x *y);
 
 
 #endif
-
