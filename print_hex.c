@@ -10,9 +10,9 @@
  */
 int print_hex(va_list l, flags_t *f)
 {
-	int count = 0;
+	unsigned int num = va_arg(l, unsigned int);
 	char *str = convert(num, 16, 1);
-	unsigned int num = va_arg(1, unsigned int);
+	int count = 0;
 
 	if (f->hash == 1 && str[0] != '0')
 		count += _puts("0x");
@@ -53,8 +53,8 @@ int print_hex_big(va_list l, flags_t *f)
 
 int print_binary(va_list l, flags_t *f)
 {
-	count *str = convert(num, 2, 0);
-	unsigned int num = va_arg(1, unsigned int);
+	unsigned int num = va_arg(l, unsigned int);
+	char *str = convert(num, 2, 0);
 
 	(void)f;
 
@@ -71,9 +71,9 @@ int print_binary(va_list l, flags_t *f)
 
 int print_octal(va_list l, flags_t *f)
 {
-	int count = 0;
-	char *str = convert(num, 8, 0);
 	unsigned int num = va_arg(l, unsigned int);
+	char *str = convert(num, 8, 0);
+	int count = 0;
 
 	if (f->hash == 1 && str[0] != '0')
 		count += _putchar('0');

@@ -3,15 +3,16 @@
 /**
  * print_address - a function that prints the address
  * of input in hexadecimal
- * @f: pointer to be used
- * @l: va_list argument
+ * @f: pointer to the struct flags that determines
+ * if flag is passed tp printf
+ * @l: va_list argument from printf
  * Return: number of characters to be printed
  */
 
 int print_address(va_list l, flags_t *f)
 {
 	char *str;
-	unsigned long int p = va_arg(1, unsigned long int);
+	unsigned long int p = va_arg(l, unsigned long int);
 
 	register int count = 0;
 
