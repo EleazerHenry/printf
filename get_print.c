@@ -25,7 +25,7 @@ int (*get_print(char specifier))(va_list, flags_t *)
 		{'S', print_address},
 		{'%', print_percent}
 	};
-	int num_funs = 14;
+	int num_funcs = 14;
 	int i;
 
 	for (i = 0; i < num_funcs; i++)
