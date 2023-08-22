@@ -1,5 +1,5 @@
-<h1>0x11. C - printf team project
-*** Group Project</h1>
+<h2>0x11. C - printf team project
+*** Group Project</h2>
 
 <h2> AUTHORS </h2>
 <h3> Henry Danso</h3>
