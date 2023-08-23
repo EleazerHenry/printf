@@ -14,12 +14,14 @@
  * @plus: flag for the '+' character
  * @space: flag for the ' ' character
  * @hash: flag for the '#' character
+ * @width: flag for width specifier
  */
 typedef struct flags
 {
 	int plus;
 	int space;
 	int hash;
+	int width;
 } flags_x;
 
 /**
@@ -79,5 +81,5 @@ int print_address(va_list vi, flags_x *y);
 /* print_percent */
 int print_percent(va_list vi, flags_x *y);
 
-
+int handle_width(va_list vi, flags_x *y);
 #endif
